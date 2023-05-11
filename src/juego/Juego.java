@@ -1,6 +1,8 @@
 package juego;
 
 
+import java.awt.Color;
+
 import entorno.Entorno;
 import entorno.InterfaceJuego;
 
@@ -8,7 +10,8 @@ public class Juego extends InterfaceJuego
 {
 	// El objeto Entorno que controla el tiempo y otros
 	private Entorno entorno;
-	
+	Nave nave;
+	Score score;
 	// Variables y métodos propios de cada grupo
 	// ...
 	
@@ -16,12 +19,12 @@ public class Juego extends InterfaceJuego
 	{
 		// Inicializa el objeto entorno
 		this.entorno = new Entorno(this, "Attack on Titan, Final Season - Grupo ... - v1", 800, 600);
-		
 		// Inicializar lo que haga falta para el juego
 		// ...
-
+		
 		// Inicia el juego!
 		this.entorno.iniciar();
+
 	}
 
 	/**
@@ -32,10 +35,17 @@ public class Juego extends InterfaceJuego
 	 */
 	public void tick()
 	{
+		Score score1 = new Score(this.entorno, 10, 580, "Puntos");
+		Score score2 = new Score(this.entorno, 150, 580, "Eliminados");
+		
 		// Procesamiento de un instante de tiempo
 		// ...
+		Nave nave1 = new Nave(this.entorno, 350, 490);
 		
-
+		if(this.entorno.estaPresionada(this.entorno.TECLA_DERECHA)) {
+			nave1.derecha();
+		}
+		
 	}
 	
 
